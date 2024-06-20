@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Java集合框架</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<style type="text/css">
+			.g-rect-path{
+    fill: none;
+    stroke-width:10;
+    stroke:#d3dce6;
+    stroke-linejoin:round;
+    stroke-linecap:round;
+}
+ 
+.g-rect-fill{
+    fill: none;
+    stroke-width:2;
+    stroke:white;
+    stroke-linejoin:round;
+    stroke-linecap:round;
+    stroke-dasharray: 0, 1370;
+    stroke-dashoffset: 0;
+    animation: lineMove 3s ease-out infinite;
+}
+ 
+@keyframes lineMove {
+    0%{
+        stroke-dasharray: 0, 1350;
+    }
+    100%{
+        stroke-dasharray: 1350, 1350;
+    }
+}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="images/bg3.jpg" data-background-opacity=".6">
+					
+					<h2>Java集合框架</h2>
+					<p>
+						<small>成都信息工程大学 &nbsp;&nbsp;  索望 </small>
+					</p>
+				</section>
+				
+				<section data-background-image="images/bg3.jpg" data-background-opacity=".1" data-auto-animate data-auto-animate-unmatched="fade">
+					<h3>提纲</h3>
+					<p style="opacity: 0.1;">Java集合框架简介</p>
+					<p style="opacity: 0.1;">List接口及其实现类</p>
+					<p style="opacity: 0.1;">Set接口及其实现类</p>
+					<p style="opacity: 0.1;">Map接口及其实现类</p>
+				</section>
+				<section data-background-image="images/bg3.jpg" data-background-opacity=".1" data-auto-animate data-auto-animate-unmatched="fade">
+					<h3>提纲</h3>
+					<p>Java集合框架简介</p>
+					<p style="opacity: 0.1;">List接口及其实现类</p>
+					<p style="opacity: 0.1;">Set接口及其实现类</p>
+					<p style="opacity: 0.1;">Map接口及其实现类</p>
+				</section>
+				<section data-background-image="images/bg3.jpg" data-background-opacity=".1" data-auto-animate data-auto-animate-unmatched="fade">
+					<h3>提纲</h3>
+					<p>Java集合框架简介</p>
+					<p>List接口及其实现类</p>
+					<p style="opacity: 0.1;">Set接口及其实现类</p>
+					<p style="opacity: 0.1;">Map接口及其实现类</p>
+				</section>
+				<section data-background-image="images/bg3.jpg" data-background-opacity=".1" data-auto-animate data-auto-animate-unmatched="fade">
+					<h3>提纲</h3>
+					<p>Java集合框架简介</p>
+					<p>List接口及其实现类</p>
+					<p>Set接口及其实现类</p>
+					<p style="opacity: 0.1;">Map接口及其实现类</p>
+				</section>
+				<section data-background-image="images/bg3.jpg" data-background-opacity=".1" data-auto-animate data-auto-animate-unmatched="fade">
+					<h3>提纲</h3>
+					<p>Java集合框架简介</p>
+					<p>List接口及其实现类</p>
+					<p>Set接口及其实现类</p>
+					<p>Map接口及其实现类</p>
+				</section>
+				<section data-background-image="images/bg3.jpg" data-background-opacity=".1" data-auto-animate data-auto-animate-unmatched="fade">
+					<h3>提纲</h3>
+					<p>Java集合框架简介</p>
+					<p style="opacity: 0.1;">List接口及其实现类</p>
+					<p style="opacity: 0.1;">Set接口及其实现类</p>
+					<p style="opacity: 0.1;">Map接口及其实现类</p>
+				</section>
+				<section data-background-image="images/bg3.jpg" data-background-opacity=".1">
+					<h3>在什么场景下需要使用集合</h3>
+					<p>应用场景:需要统计一门课程的学生成绩，你会如何存储这些成绩数据呢？</p>
+					
+					<p>
+						<span style="display: inline-block;color: rgb(68, 110, 236);" class="fragment fade-right">用变量存储？ </span>
+						<span style="display: inline-block;color: #ed0b0b;" class="fragment fade-downs">数据量大时不方便处理 </span>
+					</p>
+					<p>
+						<span style="display: inline-block;color: rgb(68, 110, 236);" class="fragment fade-right">用数组存储？</span>
+						<span style="display: inline-block; color: #ed0b0b;" class="fragment fade-down">长度固定，不方便扩展 </span>
+					</p>
+					<p>
+						<span style="display: inline-block;color: rgb(68, 110, 236);" class="fragment fade-right">需要长度可变的容器：</span>
+						<span style="display: inline-block; color: #128707;" class="fragment fade-down">Java集合容器 </span>
+					</p>
+					
+			</section>
+			<section data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3>什么是Java集合框架</h3>
+				<p>
+					Java集合是Java语言中用于存储数据的一组接口和类，它们提供了一种操作集合数据的方式。	
+				</p>
+				<p>
+					Java集合框架（Java Collections Framework）是Java标准库的一部分，它允许开发者以一种高效和灵活的方式来使用和操作集合数据结构。	
+				</p>
+			</section>
+			<section data-auto-animate style="height: 600px" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<img class="r-stretch" src="images/java_collections.png" />
+				<p>Java集合框架体系结构图</p>
+			</section>
+			<section data-auto-animate style="height: 600px" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<img class="r-stretch" src="images/java_collections.png" />
+				<p>Java集合框架体系结构图</p>
+				<div data-id="1" style="background: cyan;border-style:solid; border-width:2px; border-color: #f7d68e; position: absolute; bottom: 480px; left: 51%; width: 80px; height: 40px; font: 0.25em sans-serif;text-align: center;line-height: 40px; border-radius: 5px; font-weight: 500;color: #000;">Collection</div>
+			</section>
+			<section data-auto-animate style="height: 600px" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3 style="opacity: 0.3; font-size: 28px;">Collection接口及其子接口</h3>
+				<div data-id="1" style="border-style:solid;border-width:1px;background: cyan;border-color: #f7d68e;  position: absolute; bottom: 450px; left: 40%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;color: #000;">Collection</div>
+				<div data-id="2" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 300px; left: 10%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">List</div>
+				<div data-id="3" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 300px; left: 40%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">Set</div>
+				<div data-id="4" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 300px; left: 70%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">Queue</div>
+				<svg style="margin: 10px;position: absolute;bottom: 198px;" width="800" height="400" >
+					<defs>
+						<marker id="arrow" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+						  <path d="M0,0 L0,6 L9,3 z" fill="#fff" />
+						</marker>
+					  </defs>
+					<polyline points="170 255,170 200,460 200,460 175" class="g-rect-fill" marker-end="url(#arrow)" />
+					<polyline points="460 255,460 175" class="g-rect-fill" marker-end="url(#arrow)"/>
+					<polyline points="750 255,750 200,460 200,460 175" class="g-rect-fill" marker-end="url(#arrow)"/>
+					
+				  </svg>
+			</section>
+				<section data-auto-animate style="height: 600px" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+					<h3 style="opacity: 0.5; font-size: 28px;">Collection接口及其子接口</h3>
+					<div data-id="1" style="border-style:solid;border-width:1px;background: cyan;position: absolute; bottom: 450px; left: 45%; width: 160px; height: 40px; font: 0.5em sans-serif;text-align: center;line-height: 40px;color:#000;">Collection</div>
+					<div data-id="2" style="border-style:solid;border-width:1px;background: #FBE7CF;border-color: #f7d68e;  position: absolute; bottom: 350px; left: 10%; width: 160px; height: 40px; font: 0.5em sans-serif;text-align: center;line-height: 40px;color:#000;">List</div>
+					<div data-id="3" style="border-style:solid;border-width:1px;background: #FBE7CF;border-color: #f7d68e;  position: absolute; bottom: 350px; left: 45%; width: 160px; height: 40px; font: 0.5em sans-serif;text-align: center;line-height: 40px;color:#000;">Set</div>
+					<div data-id="4" style="border-style:solid;border-width:1px;background: #FBE7CF;border-color: #f7d68e;  position: absolute; bottom: 350px; left: 78%; width: 160px; height: 40px; font: 0.5em sans-serif;text-align: center;line-height: 40px;color:#000;">Queue</div>
+					<div data-id="5" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 250px; left: 0%; width: 160px; height: 40px; font: 0.5em sans-serif;text-align: center;line-height: 40px;">ArrayList</div>
+					<div data-id="6" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 250px; left: 18%; width: 160px; height: 40px; font: 0.5em sans-serif;text-align: center;line-height: 40px;">LinkedList</div>
+					<div data-id="7" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 250px; left: 38%; width: 160px; height: 40px; font: 0.5em sans-serif;text-align: center;line-height: 40px;">HashSet</div>
+					<div data-id="8" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 250px; left: 56%; width: 160px; height: 40px; font: 0.5em sans-serif;text-align: center;line-height: 40px;">TreeSet</div>
+					<div data-id="9" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 250px; left: 78%; width: 160px; height: 40px; font: 0.5em sans-serif;text-align: center;line-height: 40px;">Deque</div>
+					<div data-id="10" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 165px; left: 38%; width: 160px; height: 40px; font: 0.5em sans-serif;text-align: center;line-height: 40px;">LinkedHashSet</div>
+					<svg style="margin: 10px;position: absolute;bottom: 198px;" width="850" height="500" >
+						<polyline points="160 315,160 290,500 290,500 275" class="g-rect-fill" marker-end="url(#arrow)" />
+						<polyline points="500 315,500 275" class="g-rect-fill" marker-end="url(#arrow)"/>
+						<polyline points="800 315,800 290,500 290,500 275" class="g-rect-fill" marker-end="url(#arrow)"/>
+						<polyline points="80 415,80 395,155 395,155 375" class="g-rect-fill" marker-end="url(#arrow)" />
+						<polyline points="250 415,250 395,155 395,155 375" class="g-rect-fill" marker-end="url(#arrow)" />
+						<polyline points="430 415,430 395,500 395,500 375" class="g-rect-fill" marker-end="url(#arrow)" />
+						<polyline points="600 415,600 395,500 395,500 375" class="g-rect-fill" marker-end="url(#arrow)" />
+						<polyline points="800 415,800 375" class="g-rect-fill" marker-end="url(#arrow)"/>
+						<polyline points="430 500,430 475" class="g-rect-fill" marker-end="url(#arrow)"/>
+					  </svg>
+				
+				</section>
+				<section>
+					<!--<section data-auto-animate>
+
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+        						Collection&lt;Integer&gt; scores = new ArrayList&lt;&gt;();
+								scores.add(89);
+								scores.add(65);
+								scores.add(78);
+								scores.add(86);
+								scores.add(45);
+								scores.add(90);
+								scores.add(66);
+							
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							Collection&lt;Integer&gt; scores = new ArrayList&lt;&gt;();
+								scores.add(89);
+								scores.add(65);
+								scores.add(78);
+								scores.add(86);
+								scores.add(45);
+								scores.add(90);
+								scores.add(66);
+								scores.add(45);
+								scores.add(90);
+								scores.add(66);
+								scores.add(45);
+								scores.add(90);
+								scores.add(66);
+						</code></pre>
+					</section>-->
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Collection接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							public interface Collection&lt;E&gt; extends Iterable&lt;E&gt;{
+
+							}
+							
+						</code></pre>
+					</section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Collection接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							public interface Collection&lt;E&gt; extends Iterable&lt;E&gt;{
+								//向Collection集合添加一个元素
+								boolean add&lt;E&gt;;
+							}
+							
+						</code></pre>
+					</section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Collection接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							public interface Collection&lt;E&gt; extends Iterable&lt;E&gt;{
+								//向Collection集合添加一个元素
+								boolean add&lt;E&gt;;
+								//从Collection集合移除一个元素
+								boolean remove&lt;Object obj&gt;;
+							}
+							
+						</code></pre>
+					</section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Collection接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							public interface Collection&lt;E&gt; extends Iterable&lt;E&gt;{
+								//向Collection集合添加一个元素
+								boolean add&lt;E&gt;;
+								//从Collection集合移除一个元素
+								boolean remove&lt;Object obj&gt;;
+								//返回Collection集合中的元素数量
+								int size();
+							}
+							
+						</code></pre>
+					</section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Collection接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							public interface Collection&lt;E&gt; extends Iterable&lt;E&gt;{
+								//向Collection集合添加一个元素
+								boolean add&lt;E&gt;;
+								//从Collection集合移除一个元素
+								boolean remove&lt;Object obj&gt;;
+								//返回Collection集合中的元素数量
+								int size();
+								//返回Collection集合的元素迭代器
+								Iterator&lt;E&gt iterator();
+							}
+							
+						</code></pre>
+					</section>
+					
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Collection接口主要方法</h4>
+						<pre data-id="code-animation">
+							<code class="hljs java" data-trim data-line-numbers="|2-3|4-9|10-14"><script type="text/template">
+							public interface Collection<E> extends Iterable<E>{
+								boolean add<E>;
+								boolean remove<Object obj>;
+								int size();
+								boolean isEmpty();
+								Iterator<E> iterator();
+								boolean contains(Object o);
+								Object[] toArray();
+								<T> T[] toArray(T[] a);
+								boolean containsAll(Collection<?> c);
+								boolean addAll(Collection<? extends E > c);
+								boolean removeAll(Collection<? > c);
+								boolean retainAll(Collection<? > c);
+								void clear();
+							}
+						</script></code></pre>
+					</section>
+					
+			
+				</section>
+				<section data-auto-animate style="height: 600px" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+					<img class="r-stretch" src="images/java_collections.png" />
+					<p>Java集合框架体系结构图</p>
+				</section>
+				<section data-auto-animate style="height: 600px" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+					<img class="r-stretch" src="images/java_collections.png" />
+					<p>Java集合框架体系结构图</p>
+					<div data-id="11"
+						style="background: cyan;border-style:solid; border-width:2px; border-color: #f7d68e; position: absolute; bottom: 478px; left: 9.5%; width: 80px; height: 40px; font: 0.25em sans-serif;text-align: center;line-height: 40px; border-radius: 5px; font-weight: 500;color: #000;">
+						Map</div>
+				</section>
+				<section >
+				<section data-auto-animate style="height: 600px" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+					<h3 style="opacity: 0.3; font-size: 28px;">Map接口及其子接口</h3>
+					<div data-id="11" style="border-style:solid;border-width:1px;background: cyan;border-color: #f7d68e;  position: absolute; bottom: 450px; left: 40%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;color: #000;">Map</div>
+					<div data-id="12" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 300px; left: 10%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">HashMap</div>
+					<div data-id="13" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 300px; left: 70%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">SortedMap</div>
+					<div data-id="14" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 155px; left: 10%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">LinkedHashMap</div>
+					<div data-id="15" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 155px; left: 70%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">TreeMap</div>
+					<svg style="margin: 10px;position: absolute;bottom: 198px;" width="800" height="500" >
+						<defs>
+							<marker id="arrow1" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+							  <path d="M0,0 L0,6 L9,3 z" fill="#fff" />
+							</marker>
+						  </defs>
+						<polyline points="170 355,170 300,460 300,460 275" class="g-rect-fill" marker-end="url(#arrow1)" />
+						<polyline points="750 355,750 300,460 300,460 275" class="g-rect-fill" marker-end="url(#arrow1)"/>
+						<polyline points="170 500,170 425" class="g-rect-fill" marker-end="url(#arrow1)"/>
+						<polyline points="750 500,750 425" class="g-rect-fill" marker-end="url(#arrow1)"/>
+						
+					  </svg>
+				</section>
+				<section data-auto-animate style="height: 600px" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+					<h3 style="opacity: 0.3; font-size: 28px;">Map接口及其子接口</h3>
+					<div data-id="11" style="border-style:solid;border-width:1px;background: cyan;border-color: #f7d68e;  position: absolute; bottom: 450px; left: 40%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;color: #000;">Map</div>
+					<div data-id="12" style="border-style:solid;border-width:1px;background: red; position: absolute; bottom: 300px; left: 10%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">HashMap</div>
+					<div data-id="13" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 300px; left: 70%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">SortedMap</div>
+					<div data-id="14" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 155px; left: 10%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">LinkedHashMap</div>
+					<div data-id="15" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 155px; left: 70%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">TreeMap</div>
+					<svg style="margin: 10px;position: absolute;bottom: 198px;" width="800" height="500" >
+						
+						<polyline points="170 355,170 300,460 300,460 275" class="g-rect-fill" marker-end="url(#arrow1)" />
+						<polyline points="750 355,750 300,460 300,460 275" class="g-rect-fill" marker-end="url(#arrow1)"/>
+						<polyline points="170 500,170 425" class="g-rect-fill" marker-end="url(#arrow1)"/>
+						<polyline points="750 500,750 425" class="g-rect-fill" marker-end="url(#arrow1)"/>
+						
+					  </svg>
+				</section>
+				
+				<section data-auto-animate style="height: 600px" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+					<h3 style="opacity: 0.3; font-size: 28px;">Map接口及其子接口</h3>
+					<div data-id="11" style="border-style:solid;border-width:1px;background: cyan;border-color: #f7d68e;  position: absolute; bottom: 450px; left: 40%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;color: #000;">Map</div>
+					<div data-id="12" style="border-style:solid;border-width:1px;background: red; position: absolute; bottom: 300px; left: 10%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">HashMap</div>
+					<div data-id="13" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 300px; left: 70%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">SortedMap</div>
+					<div data-id="14" style="border-style:solid;border-width:1px;background: red; position: absolute; bottom: 155px; left: 10%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">LinkedHashMap</div>
+					<div data-id="15" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 155px; left: 70%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">TreeMap</div>
+					<svg style="margin: 10px;position: absolute;bottom: 198px;" width="800" height="500" >
+						
+						<polyline points="170 355,170 300,460 300,460 275" class="g-rect-fill" marker-end="url(#arrow1)" />
+						<polyline points="750 355,750 300,460 300,460 275" class="g-rect-fill" marker-end="url(#arrow1)"/>
+						<polyline points="170 500,170 425" class="g-rect-fill" marker-end="url(#arrow1)"/>
+						<polyline points="750 500,750 425" class="g-rect-fill" marker-end="url(#arrow1)"/>
+						
+					  </svg>
+				</section>
+				<section data-auto-animate style="height: 600px" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+					<h3 style="opacity: 0.3; font-size: 28px;">Map接口及其子接口</h3>
+					<div data-id="11" style="border-style:solid;border-width:1px;background: cyan;border-color: #f7d68e;  position: absolute; bottom: 450px; left: 40%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;color: #000;">Map</div>
+					<div data-id="12" style="border-style:solid;border-width:1px;background: red; position: absolute; bottom: 300px; left: 10%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">HashMap</div>
+					<div data-id="13" style="border-style:solid;border-width:1px;background: red; position: absolute; bottom: 300px; left: 70%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">SortedMap</div>
+					<div data-id="14" style="border-style:solid;border-width:1px;background: red; position: absolute; bottom: 155px; left: 10%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">LinkedHashMap</div>
+					<div data-id="15" style="border-style:solid;border-width:1px;background: rgba(25, 26, 26, 0.874); position: absolute; bottom: 155px; left: 70%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">TreeMap</div>
+					<svg style="margin: 10px;position: absolute;bottom: 198px;" width="800" height="500" >
+						<defs>
+							<marker id="arrow2" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+							  <path d="M0,0 L0,6 L9,3 z" fill="#fff" />
+							</marker>
+						  </defs>
+						<polyline points="170 355,170 300,460 300,460 275" class="g-rect-fill" marker-end="url(#arrow2)" />
+						<polyline points="750 355,750 300,460 300,460 275" class="g-rect-fill" marker-end="url(#arrow2)"/>
+						<polyline points="170 500,170 425" class="g-rect-fill" marker-end="url(#arrow2)"/>
+						<polyline points="750 500,750 425" class="g-rect-fill" marker-end="url(#arrow2)"/>
+						
+					  </svg>
+				</section>
+				<section data-auto-animate style="height: 600px" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+					<h3 style="opacity: 0.3; font-size: 28px;">Map接口及其子接口</h3>
+					<div data-id="11" style="border-style:solid;border-width:1px;background: cyan;border-color: #f7d68e;  position: absolute; bottom: 450px; left: 40%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;color: #000;">Map</div>
+					<div data-id="12" style="border-style:solid;border-width:1px;background: red; position: absolute; bottom: 300px; left: 10%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">HashMap</div>
+					<div data-id="13" style="border-style:solid;border-width:1px;background: red; position: absolute; bottom: 300px; left: 70%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">SortedMap</div>
+					<div data-id="14" style="border-style:solid;border-width:1px;background: red; position: absolute; bottom: 155px; left: 10%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">LinkedHashMap</div>
+					<div data-id="15" style="border-style:solid;border-width:1px;background: red; position: absolute; bottom: 155px; left: 70%; width: 180px; height: 50px; font: 0.5em sans-serif;text-align: center;line-height: 50px;">TreeMap</div>
+					<svg style="margin: 10px;position: absolute;bottom: 198px;" width="800" height="500" >
+						
+						<polyline points="170 355,170 300,460 300,460 275" class="g-rect-fill" marker-end="url(#arrow2)" />
+						<polyline points="750 355,750 300,460 300,460 275" class="g-rect-fill" marker-end="url(#arrow2)"/>
+						<polyline points="170 500,170 425" class="g-rect-fill" marker-end="url(#arrow2)"/>
+						<polyline points="750 500,750 425" class="g-rect-fill" marker-end="url(#arrow2)"/>
+						
+					  </svg>
+				</section>
+				</section>
+				<section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Map接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+				
+							Map&ltString,Integer&lt; map = new HashMap&ltString,Integer&lt;();
+								map.put("张三",68);
+								map.put("李四",90);
+								map.put("王麻子",77);
+							
+						</code></pre>
+					</section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Map接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							Map&ltString,Integer&lt; map = new HashMap&ltString,Integer&lt;();
+								map.put("张三",68);
+								map.put("李四",90);
+								map.put("王麻子",77);
+								map.put("Tom",67);
+								map.put("Jerry",97);
+						</code></pre>
+					</section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Map接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							public interface Map&lt;K,V&gt;{
+
+							}
+							
+						</code></pre>
+					</section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Map接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							public interface Map&lt;K,V&gt;{
+								//向Map集合添加一个元素
+								V put(K key , V value);
+							}
+							
+						</code></pre>
+					</section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Map接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							public interface Map&lt;K,V&gt;{
+								//向Map集合添加一个元素
+								V put(K key , V value);
+								//从Map集合中移除一个元素
+								V remove(Object key);
+							}
+							
+						</code></pre>
+					</section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Map接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							public interface Map&lt;K,V&gt;{
+								//向Map集合添加一个元素
+								V put(K key , V value);
+								//从Map集合中移除一个元素
+								V remove(Object key);
+								//从Map集合中返回Key对应的Value
+								V get(Object key);
+							}
+							
+						</code></pre>
+					</section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Map接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							public interface Map&lt;K,V&gt;{
+								//向Map集合添加一个元素
+								V put(K key , V value);
+								//从Map集合中移除一个元素
+								V remove(Object key);
+								//从Map集合中返回Key对应的Value
+								V get(Object key);
+								//判断Map集合中是否包含Key对应的键值对
+								boolean containsKey(Object key)
+							}
+							
+						</code></pre>
+					</section>
+					<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+						<h4 data-id="code-title">Map接口主要方法</h4>
+						<pre data-id="code"><code data-line-numbers class="java" data-trim>
+							public interface Map&lt;K,V&gt;{
+								//向Map集合添加一个元素
+								V put(K key , V value);
+								//从Map集合中移除一个元素
+								V remove(Object key);
+								//从Map集合中返回Key对应的Value
+								V get(Object key);
+								//判断Map集合中是否包含Key对应的键值对
+								boolean containsKey(Object key)
+								//还有更多的方法
+								...........
+							}
+							
+						</code></pre>
+					</section>
+				</section>
+			<section data-auto-animate data-auto-animate-unmatched="fade" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3>提纲</h3>
+				<p style="opacity: 0.1;">Java集合框架简介</p>
+				<p>List接口及其实现类</p>
+				<p style="opacity: 0.1;">Set接口及其实现类</p>
+				<p style="opacity: 0.1;">Map接口及其实现类</p>
+			</section>
+			<section data-transition="convex-in concave-out" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3>List接口</h3>
+				<h3 style="opacity: 0.5; font-size: 32px;">表示有序、可重复的集合</h3>
+				<p class="fragment">表示一串有序的集合，支持索引操作</p>
+				<p class="fragment">存取有序、元素可以重复，可以插入多个null元素、可以用下标对元素进行操作
+				</p>
+				<p class="fragment">实现类：<span class="fragment highlight-red">ArrayList</span>、<span class="fragment highlight-red">LinkedList</span>、Vector、Stack	</p>
+				
+			</section>
+			<section data-transition="concave" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3>ArrayList</h3>
+				<h3 style="opacity: 0.5; font-size: 32px;">List接口的常用实现类</h3>
+				<ul>
+					<li class="fragment" style="margin-block: 20px;">底层由数组实现的，支持随机存取，也可以通过下标直接存取元素；
+					</li>
+					<li class="fragment" style="margin-block: 20px;">从尾部插入和删除元素会比较快捷，从中间插入和删除元素会比较低效；
+					</li>
+					<li  class="fragment" style="margin-block: 20px;">如果内部数组的容量不足时会自动扩容，因此当元素非常庞大的时候，效率会比较低。
+					</li>
+					
+				</ul>
+			</section>
+			<section data-transition="convex-in fade-out" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3>LinkedList</h3>
+				<h3 style="opacity: 0.5; font-size: 32px;">List接口的常用实现类</h3>
+				<ul>
+					<li class="fragment" style="margin-block: 20px;">由双向链表实现的，不支持随机存取；
+					</li>
+					<li class="fragment" style="margin-block: 20px;">任意位置插入和删除元素都很方便，因为只需要改变前一个节点和后一个节点的引用即可；
+					</li>
+					<li  class="fragment" style="margin-block: 20px;">因为每个元素都存储了前一个和后一个节点的引用，占用的内存空间会比 ArrayList 多一些</li>
+					
+				</ul>
+			</section>
+			<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h4 data-id="code-title">ArrayList使用示例</h4>
+				<pre data-id="code-animation">
+					<code class="hljs java" data-trim data-line-numbers="|1-2|3-7|8-17|18-24|25-30"><script type="text/template">
+						// 创建一个ArrayList集合
+						ArrayList<String> list = new ArrayList<String>();
+						// 添加元素
+						list.add("Java");
+						list.add("Python");
+						list.add("Ruby");
+						
+						// 遍历集合 for 循环
+						for (int i = 0; i < list.size(); i++) {
+							String s = list.get(i);
+							System.out.println(s);
+						}
+						// 遍历集合 for each
+						for (String s : list) {
+							System.out.println(s);
+						}
+						
+						// 删除元素
+						list.remove(1);
+						// 遍历集合
+						for (String s : list) {
+							System.out.println(s);
+						}
+						
+						// 修改元素
+						list.set(1, "JavaScript");
+						// 遍历集合
+						for (String s : list) {
+							System.out.println(s);
+						}
+						
+				</script></code></pre>
+			</section>
+			<section data-auto-animate data-auto-animate-unmatched="fade" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3>提纲</h3>
+				<p style="opacity: 0.1;">Java集合框架简介</p>
+				<p style="opacity: 0.1;">List接口及其实现类</p>
+				<p>Set接口及其实现类</p>
+				<p style="opacity: 0.1;">Map接口及其实现类</p>
+			</section>
+			<section data-transition="zoom" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3>Set接口</h3>
+				<h3 style="opacity: 0.5; font-size: 32px;">表示无序且无重复元素的集合</h3>
+				<p class="fragment">存入和取出顺序可能不一致
+				</p>
+				<p class="fragment">只允许插入一个null元素，保证元素的唯一性
+				</p>
+				<p class="fragment">判断元素是否重复的方法是equals()和hashCode()
+				</p>
+				
+		
+			</section>
+
+			<section data-transition="zoom-in fade-out" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3>Set接口的实现类</h3>
+				<p class="fragment"><span class="fragment highlight-red">HashSet</span>：底层结构为HashMap，通过计算元素的HashCode值来决定其在Set中的存储位置
+				</p>
+				<p class="fragment"><span class="fragment highlight-red">LinkedHashSet</span>：除了用Hash值，同时使用链表维护元素的次序，插入性能低，迭代性能高
+
+				</p>
+				<p class="fragment">其他实现类：SortedSet、TreeSet、EnumSet
+				</p>
+				
+			</section>
+			<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h4 data-id="code-title">HashSet使用示例</h4>
+				<pre data-id="code-animation">
+					<code class="hljs java" data-trim data-line-numbers="|1-2|3-7|8-11|12-19|20-26"><script type="text/template">
+						// 创建一个新的HashSet集合
+						HashSet<String> set = new HashSet<>();
+
+						// 添加元素
+						set.add("Java");
+						set.add("Python");
+						set.add("Ruby");
+
+						// 输出HashSet的元素个数
+						System.out.println("HashSet size: " + set.size()); // output: 3
+
+						// 判断元素是否存在于HashSet中
+						boolean containsWanger = set.contains("Java");
+						System.out.println("Does set contain 'Java'? " + containsWanger); // output: true
+
+						// 删除元素
+						boolean removeWanger = set.remove("Java");
+						System.out.println("Removed 'Java'? " + removeWanger); // output: true
+
+						// 修改元素，需要先删除后添加
+						boolean removeChenmo = set.remove("Ruby");
+						boolean addBuChenmo = set.add("Go");
+						System.out.println("Modified set? " + (removeChenmo && addBuChenmo)); // output: true
+
+						// 输出修改后的HashSet
+						System.out.println("HashSet after modification: " + set); // output: [Python, Go]
+
+						
+				</script></code></pre>
+			</section>
+
+			<section data-auto-animate data-auto-animate-unmatched="fade" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3>提纲</h3>
+				<p style="opacity: 0.1;">Java集合框架简介</p>
+				<p style="opacity: 0.1;">List接口及其实现类</p>
+				<p style="opacity: 0.1;">Set接口及其实现类</p>
+				<p>Map接口及其实现类</p>
+			</section>
+			<section data-transition="convex-in concave-out" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3>Map接口</h3>
+				<h3 style="opacity: 0.5; font-size: 32px;">Map集合保存的是键值对</h3>
+				<p class="fragment"><span class="fragment highlight-red">HashMap</span>：通过哈希函数将键映射到哈希表中的一个索引位置，从而实现快速访问
+				</p>
+				<p class="fragment"><span class="fragment highlight-red">LinkedHashMap</span>：LinkedHashMap是HashMap的子类，使用链表来记录插入/访问元素的顺序。
+
+				</p>
+				<p class="fragment"><span class="fragment highlight-red">TreeMap</span>：实现了SortedMap接口，自动将键按照自然顺序或指定的比较器顺序排序，并保证其元素的顺序。内部使用红黑树来实现键的排序和查找。</p>
+			</section>
+			<section data-auto-animate data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h4 data-id="code-title">HashMap使用示例</h4>
+				<pre data-id="code-animation">
+					<code class="hljs java" data-trim data-line-numbers="|1-2|3-7|8-11|12-17|18-25"><script type="text/template">
+						// 创建一个 HashMap 对象
+						HashMap<String, Integer> hashMap = new HashMap<>();
+
+						// 添加键值对
+						hashMap.put("Java", 95);
+						hashMap.put("Python", 88);
+						hashMap.put("Go", "chenqingyang"72);
+
+						// 获取指定键的值
+						Integer value1 = hashMap.get("Java");
+						System.out.println("Java成绩为：" + value1);
+
+						// 修改键对应的值Java
+						hashMap.put("Java", 99);
+						Integer value2 = hashMap.get("Java");
+						System.out.println("修改后Java成绩为：" + value2);
+
+						// 删除指定键的键值对
+						hashMap.remove("Java");
+
+						// 遍历 HashMap
+						for (String key : hashMap.keySet()) {
+							Integer value = hashMap.get(key);
+							System.out.println(key + " 对应的成绩为：" + value);
+}
+				</script></code></pre>
+			</section>
+			<section data-transition="convex-in concave-out" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h3>总结</h3>
+				
+				<p class="fragment">Java集合框架是Java中用于存储和操作对象集合的一组接口和类。它提供了一种统一的方式来处理对象集合，使得代码更加灵活和可重用。
+				</p>
+				<p class="fragment"><span class="fragment highlight-red">List</span>：有序的集合，可以包含重复的元素，常用ArrayList和LinkedList。
+
+				</p>
+				<p class="fragment"><span class="fragment highlight-red">Set</span>：不允许重复元素，常用HashSet、LinkedHashSet和TreeSet。</p>
+				<p class="fragment"><span class="fragment highlight-red">Map</span>：存储键值对的集合，键不能重复，值可以重复，常用HashMap、LinkedHashMap和TreeMap。</p>
+			</section>
+			<section style="text-align: center;" data-background-image="images/bg3.jpg" data-background-opacity=".1">
+				<h1>谢 谢</h1>
+				
+			</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+	</body>
+</html>
